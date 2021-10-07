@@ -1,85 +1,34 @@
-<div class="control-section">
-  <ejs-treegrid
-    [dataSource]='data'
-    [contextMenuItems]="contextMenuItems"
-    [editSettings]='editing'
-    [treeColumnIndex]='1'
-    allowPaging='true'
-    childMapping='subtasks'
-    height='250'
+<div style="padding-top: 7px; display: inline-block">
+  Hierarchy Mode
+  <ejs-dropdownlist
+    (change)='onChange($event)'
+    [dataSource]='dropData' value='Parent'
+    [fields]='fields'
   >
-    <e-columns>
-      <e-column
-        field='taskID'
-        [isFrozen]="true"
-        isPrimaryKey='true'
-        headerText='Task ID'
-        width='70'
-        textAlign='Center'>
-      </e-column>
-
-      <e-column
-        field='taskName'
-        headerText='Task Name'
-        width='302'
-        textAlign='Left'>
-      </e-column>
-
-      <e-column
-        field='startDate'
-        headerText='Start Date'
-        width='180' format="yMd"
-        textAlign='Center'>
-      </e-column>
-
-      <e-column
-        field='endDate'
-        headerText='End Date'
-        width='180'
-        format="yMd"
-        textAlign='Center'>
-      </e-column>
-
-      <e-column
-        field='duration'
-        headerText='Duration'
-        width='180'
-        textAlign='Center'>
-      </e-column>
-
-      <e-column
-        field='progress'
-        headerText='Progress'
-        width='180'
-        textAlign='Center'>
-      </e-column>
-
-      <e-column
-        field='priority'
-        headerText='Priority'
-        width='190'>
-      </e-column>
-
-      <e-column
-        field='duration'
-        headerText='Duration'
-        width='180'
-        textAlign='Center'>
-      </e-column>
-
-      <e-column
-        field='progress'
-        headerText='Progress'
-        width='180'
-        textAlign='Center'>
-      </e-column>
-
-      <e-column
-        field='priority'
-        headerText='Priority'
-        width='190'>
-      </e-column>
-
-    </e-columns>
-  </ejs-treegrid>
+  </ejs-dropdownlist>
 </div>
+
+<ejs-treegrid
+  #treegrid
+  [dataSource]='data'
+  allowPaging='true'
+  [contextMenuItems]="contextMenuItems"
+  [editSettings]='editing'
+  childMapping='subtasks'
+  [treeColumnIndex]='1'
+  [allowSorting]="true"
+  [sortSettings]='sortSettings'
+  [allowPaging]="true"
+  [pageSettings]='pageSettings'
+  [allowFiltering]="true"
+>
+  <e-columns>
+    <e-column [isFrozen]="true" field='taskID' headerText='Task ID' width='100' textAlign='Center'></e-column>
+    <e-column field='taskName' headerText='Task Name' width='302' textAlign='Left'></e-column>
+    <e-column field='startDate' headerText='Start Date' width='180' format="yMd" textAlign='Center'></e-column>
+    <e-column field='endDate' headerText='End Date' width='180' format="yMd" textAlign='Center'></e-column>
+    <e-column field='duration' headerText='Duration' [filterBarTemplate]="filterDurationTemplate" width='180' textAlign='Center'></e-column>
+    <e-column field='progress' headerText='Progress' width='180' textAlign='Center'></e-column>
+    <e-column field='priority' headerText='Priority' [filterBarTemplate]="filterPriorityTemplate" width='190'></e-column>
+  </e-columns>
+</ejs-treegrid>
