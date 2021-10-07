@@ -31,7 +31,11 @@ import { AppComponent } from './app.component';
     DatePickerModule,
     NumericTextBoxAllModule
   ],
-  providers: [PageService, SortService, FilterService],
+  providers: [
+    PageService,
+    SortService,
+    FilterService
+  ],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
