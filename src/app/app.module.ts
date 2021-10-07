@@ -5,11 +5,11 @@ import { BrowserModule } from '@angular/platform-browser';
 import { SparklineAllModule } from '@syncfusion/ej2-angular-charts';
 import { DialogModule } from '@syncfusion/ej2-angular-popups';
 import { DropDownListAllModule, MultiSelectAllModule } from '@syncfusion/ej2-angular-dropdowns';
-import { ToolbarModule, ToolbarAllModule } from '@syncfusion/ej2-angular-navigations';
+import { ToolbarModule } from '@syncfusion/ej2-angular-navigations';
 import { ButtonAllModule , CheckBoxAllModule} from '@syncfusion/ej2-angular-buttons';
-import { DatePickerModule, DatePickerAllModule } from '@syncfusion/ej2-angular-calendars';
+import { DatePickerModule } from '@syncfusion/ej2-angular-calendars';
 import { NumericTextBoxAllModule } from '@syncfusion/ej2-angular-inputs';
-import { TreeGridAllModule } from '@syncfusion/ej2-angular-treegrid';
+import { TreeGridAllModule, PageService, SortService, FilterService } from '@syncfusion/ej2-angular-treegrid';
 
 import { AppComponent } from './app.component';
 
@@ -31,7 +31,7 @@ import { AppComponent } from './app.component';
     DatePickerModule,
     NumericTextBoxAllModule
   ],
-  providers: [],
+  providers: [PageService, SortService, FilterService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
