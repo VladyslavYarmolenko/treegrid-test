@@ -9,7 +9,7 @@ import { ToolbarModule, ToolbarAllModule } from '@syncfusion/ej2-angular-navigat
 import { ButtonAllModule , CheckBoxAllModule} from '@syncfusion/ej2-angular-buttons';
 import { DatePickerModule, DatePickerAllModule } from '@syncfusion/ej2-angular-calendars';
 import { NumericTextBoxAllModule } from '@syncfusion/ej2-angular-inputs';
-import { TreeGridAllModule } from '@syncfusion/ej2-angular-treegrid';
+import { ContextMenuService, FreezeService, TreeGridAllModule } from '@syncfusion/ej2-angular-treegrid';
 
 import { AppComponent } from './app.component';
 
@@ -31,7 +31,10 @@ import { AppComponent } from './app.component';
     DatePickerModule,
     NumericTextBoxAllModule
   ],
-  providers: [],
+  providers: [
+    FreezeService,
+    ContextMenuService
+  ],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
